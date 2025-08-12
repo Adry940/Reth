@@ -29,7 +29,7 @@ jobs:
         network: ["ethereum", "optimism"]
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
         with:
@@ -52,9 +52,9 @@ jobs:
       RUST_BACKTRACE: 1
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Checkout ethereum/tests
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ethereum/tests
           ref: 1c23e3c27ac53b794de0844d2d5e19cd2495b9d8
@@ -79,7 +79,7 @@ jobs:
       matrix:
         network: ["ethereum", "optimism"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
         with:

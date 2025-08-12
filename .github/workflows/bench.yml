@@ -23,7 +23,7 @@ jobs:
     # Only run benchmarks in merge groups and on main
     if: github.event_name != 'pull_request'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install Valgrind
         run: sudo apt update && sudo apt install valgrind
       - uses: dtolnay/rust-toolchain@stable
@@ -45,7 +45,7 @@ jobs:
           which iai-callgrind-runner
           echo "::endgroup::"
       - name: Checkout base
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.base_ref || 'main' }}
       - name: Generate test vectors
@@ -53,7 +53,7 @@ jobs:
       - name: Save baseline
         run: cargo bench -p reth-db --bench iai --features test-utils -- --save-baseline=$BASELINE
       - name: Checkout PR
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           clean: false
       - name: Compare PR benchmarks
